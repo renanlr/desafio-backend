@@ -31,12 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Third-party Apps 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_yasg',
+
+    # Local Apps
+    'api',
+    
 ]
 
 MIDDLEWARE = [
@@ -68,6 +78,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'desafioBackend.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+
+}
 
 
 # Database
