@@ -12,13 +12,6 @@ from rest_framework import status
 
 # Create your views here.
 
-@api_view(['GET'])
-def api_root(request):
-    return Response({
-        'trips': reverse('trip-list', request=request, format=format)
-    })
-
-
 class TripList(mixins.ListModelMixin,
                mixins.CreateModelMixin,
                generics.GenericAPIView):
@@ -26,6 +19,9 @@ class TripList(mixins.ListModelMixin,
     serializer_class = TripSerializer
 
     def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
 
     def get_queryset(self):
