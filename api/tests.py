@@ -57,6 +57,18 @@ class TripTestCase(APITestCase):
         assert response.data.get('classification') == 1
         assert response.data.get('rating') == 5
 
+    def test_should_create_trip(self):
+        # setup
+        trip = Trip.objects.create(owner=self.alice, start_date='2020-03-27T00:35:00Z',
+                                   end_date='2020-03-27T00:35:00Z')
+        # execute
+        response = self.client.post('/trips/', {"start_date":"2020-03-27T00:35:00Z",
+                                                "end_date":"2020-03-27T00:35:00Z",
+                                                "classification": 1, "rating": 5})
+        # verify
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data.get('count') == 2
+
     def test_return_400_when_trip_unexistent(self):
         # setup
         trip = Trip.objects.create(owner=self.alice, start_date='2020-03-27T00:35:00Z', end_date='2020-03-27T00:35:00Z')
