@@ -6,9 +6,6 @@ Nesta API temos:
 - Endpoint para listar as últimas viagens do usuário logado
 - Endpoint para enviar a classificação da viagem e a sua nota
 
-## Forma de entrega
-Fazer um fork deste projeto e nos enviar a url do seu fork.
-
 ## Instalação
 ### Pré-requisitos:
  Ambiente virtual configurado com Python 3.5
