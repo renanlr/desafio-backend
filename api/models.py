@@ -1,9 +1,9 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Trip(models.Model):
-
     class Meta:
         db_table = 'trip'
         ordering = ['-id']
@@ -14,7 +14,7 @@ class Trip(models.Model):
         (2, 'Lazer'),
         (3, 'Deslocamento')
     )
-    
+
     owner = models.ForeignKey('auth.User', related_name='trips', on_delete=models.CASCADE)
     start_date = models.DateTimeField('Data Inicio', blank=True, null=True)
     end_date = models.DateTimeField('Data Fim', blank=True, null=True)
