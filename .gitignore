@@ -6,3 +6,5 @@ desafio-backend/
 api/__pycache__/
 
 api/migrations/__pycache__/
+
+\.idea/
